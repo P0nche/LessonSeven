@@ -10,12 +10,10 @@ public class Main {
         Class<? extends Apple> clazz = apple.getClass();
 
         Field[] fields = clazz.getDeclaredFields();
-        for (Field f : fields) {
-            System.out.println(f.getName() + " " + f.getType());
-            f.setAccessible(true);
-            f.set(apple, "green");
-            f.setAccessible(false);
-        }
+
+        fields[0].setAccessible(true);
+        fields[0].set(apple, "green");
+        fields[0].setAccessible(false);
 
         System.out.println(apple.getColor());
     }
